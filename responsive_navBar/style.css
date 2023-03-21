@@ -1,15 +1,28 @@
+:root {
+    --primary-color: rgb(48, 48, 48);
+    --secondary-color: white;
+    --hover-color: rgb(15, 231, 138);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
 }
+
 html {
     font-size: 62.5%;
 }
 
+/* Here I'm targeting all the ul-li's 
+in the css file to remove the dots */
+ul {
+    list-style-type: none;
+}
+
 body {
-    background-color: whitesmoke;
+    background-color: var(--secondary-color);
 }
 
 .all-nav {
@@ -18,15 +31,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(48, 48, 48);
-    color: whitesmoke;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 1rem 1.5rem;
 }
 
 .icon {
     display: inline;
     padding: 4px;
-    border: 3px solid white;
+    border: 3px solid var(--secondary-color);
     padding: 1rem 0.8rem;
     border-radius: 3px;
     transition: 0.3s;
@@ -39,23 +52,29 @@ body {
 }
 
 .icon i:hover {
-    color: rgb(17, 225, 135);
+    color: var(--hover-color);
 }
 
 .menu {
     display: none;
     align-items: center;
     margin: 0 -1rem;
+    text-decoration: none;
+}
+
+.menu ul {
+    display: flex;
+    text-decoration: none;
 }
 
 .menu a {
     margin: 0 1rem;
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
 .menu a:hover {
-    color: orange;
+    color: var(--hover-color);
 }
 
 .hamburguer {
@@ -71,7 +90,7 @@ body {
 }
 
 .hamburguer span {
-    color: white;
+    color: var(--secondary-color);
     font-size: 2.6rem;
 }
 
@@ -83,11 +102,11 @@ body {
     height: 100%;
     z-index: 98;
 
-     padding-top: 6rem;   
+    padding-top: 6rem;   
     opacity: 0;
     transform: translateY(-100%);
-    background-color: rgb(48, 48, 48);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     transition: 0.3s; 
 }
 
@@ -99,5 +118,24 @@ body {
 .mobile-menu a {
     display: block;
     padding: 1rem;
-    color: white;
+    color: var(--secondary-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: 0.3s;
+}
+
+.mobile-menu a:hover {
+    color: var(--hover-color);
+    background-color: var(--secondary-color);
+}
+
+@media (min-width: 768px) {
+    .mobile-menu, .hamburguer {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
 }
